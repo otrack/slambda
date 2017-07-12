@@ -12,10 +12,17 @@ This list is shared between all instances (over time) of the lambda using the CR
 
 ## Usage
 
-To build and deploy the org.example.Hello lambda:
+First, install in your local Maven repository infinispan-creson (**JPA** branch) using:
 
+	git clone https://github.com/otrack/infinispan-creson
+	git checkout jpa
+	mvn clean install -DskipTests
+
+Then, build and deploy this lambda:
+
+	git clone 
 	mvn clean package shade:shade lambda:deploy-lambda -DskipTests -DaccessKey="KEY" -DsecretKey="SECRET"
 
-Once properly deployed, to run this lambda:
+Once properly deployed, run it:
 
-	aws lambda invoke --payload '{"key":"value"}' --function-name my-function-dev output.txt
+	aws lambda invoke --payload '{"key":"value"}' --function-name my-function-name output.txt

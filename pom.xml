@@ -109,10 +109,6 @@
           <publish>${lambda.publish}</publish>
           <forceUpdate>${lambda.forceUpdate}</forceUpdate>
           <functionNameSuffix>${lambda.functionNameSuffix}</functionNameSuffix>
-          <environmentVariables>
-            <key0>creson</key0>
-            <value0>52.49.189.207</value0>
-          </environmentVariables>
           <lambdaFunctionsJSON>
             [
             {

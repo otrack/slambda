@@ -8,7 +8,9 @@ The code base uses
 - the Lambda plugin for Maven available [here](https://github.com/SeanRoy/lambda-maven-plugin).
 
 It implements a toy Lambda function that concatenates the values given in parameters to a list.
-This list is shared between all instances (over time) of the lambda using the CRESON framework.
+This list is shared _consistently_ between all instances of this lambda.
+To this end, the lambda uses the CRESON framework and a dedicated nodes located @52.49.189.207:11222.
+For the sake of simplicity, this address is hard-coded in the code of the lambda (Hello.java).
 
 ## Usage
 
@@ -18,10 +20,12 @@ First, install in your local Maven repository infinispan-creson (**JPA** branch)
 	git checkout jpa
 	mvn clean install -DskipTests
 
-Then, build and deploy this lambda:
+Clone this repository, then modify appropriately the parameters of AWS Lambda in pom.xml -> plugins -> lambda-maven-plugin -> configuration.
+This implies modifying setting-up the region, creating an IAM and modifying the bucket where to store lambdas.
 
-	git clone 
-	mvn clean package shade:shade lambda:deploy-lambda -DskipTests -DaccessKey="KEY" -DsecretKey="SECRET"
+Then, build and deploy this lambda with:
+
+	mvn clean package shade:shade lambda:deploy-lambda -DskipTests -DaccessKey="aws_key" -DsecretKey="aws_secret" -Ds3Bucket="my_bucket"
 
 Once properly deployed, run it:
 

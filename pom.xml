@@ -18,7 +18,7 @@
 
     <dependency>
       <groupId>org.infinispan</groupId>
-      <artifactId>infinispan-creson</artifactId>
+      <artifactId>infinispan-creson-client</artifactId>
       <version>9.0.3.Final</version>
     </dependency>
 
@@ -61,7 +61,7 @@
           <aspectLibraries>
           <aspectLibrary>
             <groupId>org.infinispan</groupId>
-            <artifactId>infinispan-creson</artifactId>
+            <artifactId>infinispan-creson-client</artifactId>
           </aspectLibrary>
         </aspectLibraries>
           <complianceLevel>1.8</complianceLevel>

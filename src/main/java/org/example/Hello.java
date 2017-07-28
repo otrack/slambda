@@ -35,6 +35,13 @@ public class Hello implements RequestHandler<Map<String, String>, String> {
             semaphore.release();
 
             map.put(1, 0);
+            map.put(2, 2);
+            if (!map.containsKey(3)) {
+                map.put(3,2);
+            }
+
+            System.out.println("map size = "+map.size());
+            System.out.println("new value = "+map.computeIfPresent(3, (k,v) -> v*v));
 
             /*
              integer.incrementAndGet(); // method is final so the call is local.

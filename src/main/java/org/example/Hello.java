@@ -14,7 +14,7 @@ import java.util.concurrent.locks.Lock;
 
 public class Hello implements RequestHandler<Map<String, String>, String> {
 
-    private static Factory factory = Factory.get("52.49.189.207:11222"); // CRESON initialization
+    private static Factory factory = Factory.get("54.77.4.130:11222"); // CRESON initialization
 
     Semaphore semaphore = factory.getInstanceOf(Semaphore.class, "semaphore", false, false, new Object[]{1}); // general declaration
 

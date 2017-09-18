@@ -18,13 +18,13 @@ public class Hello implements RequestHandler<Map<String, String>, String> {
 
     private static Factory factory = Factory.get("54.77.4.130:11222"); // CRESON initialization
 
-    Semaphore semaphore = factory.getInstanceOf(Semaphore.class, "sem", false, false, new Object[]{1}); // general declaration
+    Semaphore semaphore = factory.getInstanceOf(Semaphore.class, "s", false, true, new Object[]{1}); // general declaration for a shared object
 
     @Shared ArrayList<String> list = new ArrayList<>(); // @Shared works with empty constructor only
     @Shared Map<Integer, Integer> map = new HashMap<>(); // hash maps are directly backed by the Infinispan cache
     @Shared TreeMap<Integer, Integer> treeMap = new TreeMap<>();
 
-    @Shared(create = true) ArrayList<Integer> alist  = new ArrayList<>(); // the persistent list is re-created
+    @Shared(create = true) ArrayList<Integer> alist  = new ArrayList<>(); // force the re-creation of the list.
 
     // *Not working examples*
     @Shared AtomicInteger integer = new AtomicInteger(); // class/methods are final (see below)

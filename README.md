@@ -14,10 +14,9 @@ For the sake of simplicity, this address is hard-coded in the code of the lambda
 
 ## Usage
 
-First, install in your local Maven repository infinispan-creson (**JPA** branch) using:
+First, install in your local Maven repository infinispan-creson using:
 
 	git clone https://github.com/otrack/infinispan-creson
-	git checkout jpa
 	mvn clean install -DskipTests
 
 Clone this repository, then modify appropriately the parameters of AWS Lambda in pom.xml -> plugins -> lambda-maven-plugin -> configuration.

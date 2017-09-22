@@ -22,6 +22,12 @@
       <version>9.0.3.Final</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.danekja</groupId>
+      <artifactId>jdk-serializable-functional</artifactId>
+      <version>1.8.3</version>
+    </dependency>
+
     <!-- TESTS -->
     <dependency>
       <groupId>junit</groupId>

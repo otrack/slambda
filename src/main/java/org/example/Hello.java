@@ -14,10 +14,10 @@ import java.util.TreeMap;
 
 public class Hello implements RequestHandler<Map<String, String>, String> {
 
-    private static Factory factory = Factory.get("54.77.4.130:11222"); // CRESON initialization
+    private static Factory factory = Factory.get("creson.otrack.org:11222"); // Creson initialization
 
     @Shared ArrayList<String> list = new ArrayList<>(); // @Shared works with empty constructor only
-    @Shared Map<Integer, Integer> map = new HashMap<>(); // hash maps are directly backed by the Infinispan cache
+    @Shared Map<Integer, Integer> map = new HashMap<>();
     @Shared TreeMap<Integer, Integer> treeMap = new TreeMap<>();
 
     public String handleRequest(Map<String, String> toadd, Context context) {

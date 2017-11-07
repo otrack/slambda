@@ -3,7 +3,6 @@ package org.example;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import org.danekja.java.util.function.serializable.SerializableBiFunction;
-import org.infinispan.creson.Factory;
 import org.infinispan.creson.Shared;
 
 import java.util.ArrayList;
@@ -13,8 +12,6 @@ import java.util.Random;
 import java.util.TreeMap;
 
 public class Hello implements RequestHandler<Map<String, String>, String> {
-
-    private static Factory factory = Factory.get("creson.otrack.org:11222"); // Creson initialization
 
     @Shared ArrayList<String> list = new ArrayList<>(); // @Shared works with empty constructor only
     @Shared Map<Integer, Integer> map = new HashMap<>();

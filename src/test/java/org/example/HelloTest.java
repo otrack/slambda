@@ -4,6 +4,7 @@ import com.amazonaws.services.lambda.runtime.ClientContext;
 import com.amazonaws.services.lambda.runtime.CognitoIdentity;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
+import org.infinispan.creson.Factory;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,6 +18,7 @@ public class HelloTest {
 
     @Before
     public void setUp() throws Exception {
+        Factory.get("localhost:11222"); // Creson initialization
         caller = new Hello();
         context = new Context(){
 

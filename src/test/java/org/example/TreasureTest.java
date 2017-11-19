@@ -1,25 +1,22 @@
 package org.example;
 
-import com.amazonaws.services.lambda.runtime.ClientContext;
-import com.amazonaws.services.lambda.runtime.CognitoIdentity;
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import org.infinispan.creson.Factory;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.amazonaws.services.lambda.runtime.ClientContext;
+import com.amazonaws.services.lambda.runtime.CognitoIdentity;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.LambdaLogger;
 
-public class HelloTest {
-
-    private Hello caller;
+public class TreasureTest {
+	private Hero hero;
     private Context context;
-
+    
     @Before
     public void setUp() throws Exception {
         Factory.get("localhost:11222"); // Creson initialization
-        caller = new Hello();
+        hero = new Hero();
         context = new Context(){
 
             public String getAwsRequestId() {
@@ -70,9 +67,9 @@ public class HelloTest {
 
     @Test
     public void should_handle_request() {
-        Map<String,String> map = new HashMap<>();
-        map.put("a","1");
-        System.out.println(caller.handleRequest(map, context));
+    	
+        System.out.println(hero.handleRequest(1, context));
     }
 
+    
 }

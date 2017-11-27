@@ -3,9 +3,9 @@ package org.example;
 
 public class Hero {
 	
-	Room room = new Room();
+	Room room = new Room(0);
 	
-	public String go() {
+	public int go() {
 		return room.loot();
 	}
 }

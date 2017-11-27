@@ -15,8 +15,7 @@ public class Room implements Serializable{
 			treasure = 0;
 			return " you got the treasure";
 		}
-		return " the treasure is aleady taken";
-		
+		return " the treasure is aleady taken";	
 	}
 	
 

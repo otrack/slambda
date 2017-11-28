@@ -4,13 +4,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Graph {
-  int numberNodes ; 
+  private int numberNodes ; 
   Room[] nodes;
   
   public Graph(int n) {
     this.numberNodes = n;
     nodes = new Room[n];
     Arrays.fill(nodes, null);
+  }
+  
+  public int getGraphSize() {
+    return numberNodes;
   }
   
   public Room addRoom(int roomId) {
@@ -41,7 +45,6 @@ public class Graph {
   
   
   public static void main(String[] args) {
-    ArrayList<Room>  nodes = new ArrayList<>();
     
   }
 

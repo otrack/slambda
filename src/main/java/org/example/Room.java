@@ -17,11 +17,13 @@ public class Room implements Serializable{
 	
 	
 	public int loot(){
-		if (treasure == 1) {
-			treasure = 0;
-			return 1;
-		}
-		return 0;	
+	  synchronized (this) {
+	    if (treasure == 1) {
+	      treasure = 0;
+	      return 1;
+	    }
+	    return 0;
+    }
 	}
 	
 

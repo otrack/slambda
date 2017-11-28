@@ -6,10 +6,20 @@ public class Hero {
   Room room = new Room(0);
   int score;
   Graph graph ; 
+  String name;
+  
   Hero(Graph graph) {
     this.graph = graph;
     score = 0;
+    name ="default"; 
   }
+  
+  Hero(String name , Graph graph) {
+    this.graph = graph;
+    score = 0;
+    this.name= name;
+  }
+
 	private int randomRoom(int lowerBound, int upperBound) {
 	  Random r = new Random();
     return r.nextInt(upperBound-lowerBound) + lowerBound;
@@ -38,5 +48,8 @@ public class Hero {
 		return room.loot();
 	}
 	
+	public String toString() {
+	  return ("The player "+ this.name + " has "+ this.score + " treasure(s)" );
+	}
 	
 }

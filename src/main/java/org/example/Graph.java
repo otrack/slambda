@@ -10,7 +10,9 @@ public class Graph {
   public Graph(int n) {
     this.numberNodes = n;
     nodes = new Room[n];
-    Arrays.fill(nodes, null);
+    for(int i = 0; i < n; i++) {
+      nodes[i] = new Room(i);
+    };
   }
   
   public int getGraphSize() {

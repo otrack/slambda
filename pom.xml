@@ -11,12 +11,6 @@
   <dependencies>
 
     <dependency>
-      <groupId>com.amazonaws</groupId>
-      <artifactId>aws-lambda-java-core</artifactId>
-      <version>1.1.0</version>
-    </dependency>
-
-    <dependency>
       <groupId>org.infinispan</groupId>
       <artifactId>infinispan-creson-client</artifactId>
       <version>9.0.3.Final</version>
@@ -99,32 +93,6 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>com.github.seanroy</groupId>
-        <artifactId>lambda-maven-plugin</artifactId>
-        <version>2.2.2</version>
-        <configuration>
-          <region>eu-west-1</region>
-          <s3Bucket>creson</s3Bucket>
-          <memorySize>128</memorySize>
-          <functionCode>${lambda.functionCode}</functionCode>
-          <version>${lambda.version}</version>
-          <lambdaRoleArn>arn:aws:iam::667743079194:role/slambda_lambda_function</lambdaRoleArn>
-          <publish>${lambda.publish}</publish>
-          <forceUpdate>${lambda.forceUpdate}</forceUpdate>
-          <functionNameSuffix>${lambda.functionNameSuffix}</functionNameSuffix>
-          <lambdaFunctionsJSON>
-            [
-            {
-            "functionName": "my-function",
-            "description": "test",
-            "handler": "org.example.Hello"
-            }
-            ]
-          </lambdaFunctionsJSON>
-        </configuration>
       </plugin>
 
     </plugins>

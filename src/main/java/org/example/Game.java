@@ -1,19 +1,28 @@
 package org.example;
 
+import java.util.Random;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Game {
-
+  
+  private static int randomRoom(int lowerBound, int upperBound) {
+    Random r = new Random();
+    return r.nextInt(upperBound - lowerBound) + lowerBound;
+  }
+  
   public static void main(String[] args) {
     TreeSet<Hero> scoreBoard = new TreeSet<>();
     
-    Graph gr = new Graph(5);
-    gr.addUndirectedPath(0, 1);
-    gr.addUndirectedPath(0, 2);
-    gr.addUndirectedPath(0, 3);
-    gr.addUndirectedPath(2, 4);
-    gr.addUndirectedPath(1, 3);
+    Graph gr = new Graph(100);
+    
+    for(int i = 0 ; i < gr.getGraphSize() ; i++) {
+      gr.addUndirectedPath(i, randomRoom(0, gr.getGraphSize()-1));
+      gr.addUndirectedPath(i, randomRoom(0, gr.getGraphSize()-1));
+      gr.addUndirectedPath(i, randomRoom(0, gr.getGraphSize()-1));
+    }
+    
+    
     
     
     Hero hamza = new Hero("Hamza", gr);

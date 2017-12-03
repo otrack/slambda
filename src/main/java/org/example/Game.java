@@ -18,6 +18,7 @@ public class Game {
       gr.addUndirectedPath(i, gr.randomRoom(0, gr.getGraphSize()-1));
     }
     
+    
     Hero hamza = new Hero("Hamza", gr);
     Thread hamzaThread = new Thread(hamza); 
     

@@ -19,30 +19,30 @@ public class Game {
     }
     
     
-    Hero hamza = new Hero("Hamza", gr);
-    Thread hamzaThread = new Thread(hamza); 
+    Hero batman = new Hero("Batman", gr);
+    Thread batmanThread = new Thread(batman); 
     
-    Hero arbia = new Hero("Arbia", gr);
-    Thread arbiaThread = new Thread(arbia);
+    Hero superman = new Hero("Superman", gr);
+    Thread superThread = new Thread(superman);
     
-    Hero asma = new Hero("Asma", gr);
-    Thread asmaThread = new Thread(asma);
+    Hero catwoman = new Hero("Catwoman", gr);
+    Thread catThread = new Thread(catwoman);
     
     try {
-      hamzaThread.start();
-      arbiaThread.start();
-      asmaThread.start();
+      batmanThread.start();
+      superThread.start();
+      catThread.start();
       
-      hamzaThread.join();
-      asmaThread.join();
-      arbiaThread.join();
+      batmanThread.join();
+      superThread.join();
+      catThread.join();
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
     
-    scoreBoard.add(asma);
-    scoreBoard.add(hamza);
-    scoreBoard.add(arbia);
+    scoreBoard.add(batman);
+    scoreBoard.add(superman);
+    scoreBoard.add(catwoman);
     
     for(Hero h : scoreBoard)
       System.out.println(h);   

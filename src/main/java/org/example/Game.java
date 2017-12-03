@@ -10,16 +10,13 @@ public class Game {
   public static void main(String[] args) {
     TreeSet<Hero> scoreBoard = new TreeSet<>();
     
-    Graph gr = new Graph(2500);
+    Graph gr = new Graph(10000);
     
     for(int i = 0 ; i < gr.getGraphSize() ; i++) {
       gr.addUndirectedPath(i, gr.randomRoom(0, gr.getGraphSize()-1));
       gr.addUndirectedPath(i, gr.randomRoom(0, gr.getGraphSize()-1));
       gr.addUndirectedPath(i, gr.randomRoom(0, gr.getGraphSize()-1));
     }
-    
-    
-    
     
     Hero hamza = new Hero("Hamza", gr);
     Thread hamzaThread = new Thread(hamza); 

@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Random;
+import java.util.Stack;
 
 public class Hero implements Runnable, Comparable<Hero> {
   Room room = new Room(0);
@@ -20,24 +21,24 @@ public class Hero implements Runnable, Comparable<Hero> {
     this.name = name;
   }
 
-  private int play(Room r, boolean[] visited) {
-    if (visited[r.id])
-      return 0;
-    visited[r.id] = true;
-    int score = r.loot();
-    for (Room neighbour : r.adjList) {
-      if (!visited[neighbour.id]) {
-        score += play(neighbour, visited);
-      }
-    }
-    return score;
-  }
-
-  private void play() {
+  private int play() {
     int taille = graph.getGraphSize();
     boolean[] visited = new boolean[taille];
     Room room = graph.getRoom(graph.randomRoom(0, taille - 1));
-    this.score = play(room, visited);
+    Stack<Room> stack = new Stack<Room>();
+    stack.push(room);
+    visited[room.id] = true;
+    while(!stack.isEmpty()) {
+      Room currentRoom = stack.pop();
+      this.score +=  currentRoom.loot();
+      for(Room r : currentRoom.adjList) {
+        if(!visited[r.id]) {
+          visited[r.id] = true;
+          stack.push(r);
+        }
+      }
+    }
+    return this.score;
   }
 
   public int go() {

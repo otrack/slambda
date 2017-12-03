@@ -20,11 +20,6 @@ public class Hero implements Runnable, Comparable<Hero> {
     this.name = name;
   }
 
-  private int randomRoom(int lowerBound, int upperBound) {
-    Random r = new Random();
-    return r.nextInt(upperBound - lowerBound) + lowerBound;
-  }
-
   private int play(Room r, boolean[] visited) {
     if (visited[r.id])
       return 0;
@@ -41,7 +36,7 @@ public class Hero implements Runnable, Comparable<Hero> {
   private void play() {
     int taille = graph.getGraphSize();
     boolean[] visited = new boolean[taille];
-    Room room = graph.getRoom(randomRoom(0, taille - 1));
+    Room room = graph.getRoom(graph.randomRoom(0, taille - 1));
     this.score = play(room, visited);
   }
 

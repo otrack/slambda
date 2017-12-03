@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Graph {
   private int numberNodes ; 
@@ -45,7 +46,10 @@ public class Graph {
     addDirectedPath(roomB, roomA);
   }
   
-  
+  public int randomRoom(int lowerBound, int upperBound) {
+    Random r = new Random();
+    return r.nextInt(upperBound - lowerBound) + lowerBound;
+  }
   public static void main(String[] args) {
     
   }

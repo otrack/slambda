@@ -5,21 +5,17 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Game {
-  
-  private static int randomRoom(int lowerBound, int upperBound) {
-    Random r = new Random();
-    return r.nextInt(upperBound - lowerBound) + lowerBound;
-  }
+ 
   
   public static void main(String[] args) {
     TreeSet<Hero> scoreBoard = new TreeSet<>();
     
-    Graph gr = new Graph(100);
+    Graph gr = new Graph(2500);
     
     for(int i = 0 ; i < gr.getGraphSize() ; i++) {
-      gr.addUndirectedPath(i, randomRoom(0, gr.getGraphSize()-1));
-      gr.addUndirectedPath(i, randomRoom(0, gr.getGraphSize()-1));
-      gr.addUndirectedPath(i, randomRoom(0, gr.getGraphSize()-1));
+      gr.addUndirectedPath(i, gr.randomRoom(0, gr.getGraphSize()-1));
+      gr.addUndirectedPath(i, gr.randomRoom(0, gr.getGraphSize()-1));
+      gr.addUndirectedPath(i, gr.randomRoom(0, gr.getGraphSize()-1));
     }
     
     

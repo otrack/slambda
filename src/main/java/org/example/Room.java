@@ -9,6 +9,10 @@ public class Room implements Serializable{
 	int id; 
 	LinkedList<Room> adjList;
 	
+	public Room() {
+	  treasure = 1;
+    adjList = new LinkedList<>();
+	};
 	public Room(int id) {
 	  this.id = id;
 		treasure = 1;
@@ -17,14 +21,11 @@ public class Room implements Serializable{
 	
 	
 	public int loot(){
-	  synchronized (this) {
 	    if (treasure == 1) {
 	      treasure = 0;
 	      return 1;
 	    }
 	    return 0;
-    }
 	}
 	
-
 }

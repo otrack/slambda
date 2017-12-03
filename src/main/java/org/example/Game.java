@@ -8,7 +8,7 @@ public class Game {
  
   
   public static void main(String[] args) {
-    TreeSet<Hero> scoreBoard = new TreeSet<>();
+    /*TreeSet<Hero> scoreBoard = new TreeSet<>();
     
     Graph gr = new Graph(10000);
     
@@ -45,7 +45,7 @@ public class Game {
     scoreBoard.add(catwoman);
     
     for(Hero h : scoreBoard)
-      System.out.println(h);   
+      System.out.println(h);   */
   }
 
 }

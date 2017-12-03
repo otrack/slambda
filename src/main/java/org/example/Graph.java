@@ -1,13 +1,17 @@
 package org.example;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Graph {
+import org.infinispan.creson.Shared;
+
+public class Graph implements Serializable{
   private int numberNodes ; 
   Room[] nodes;
   
+  public Graph() {};
   public Graph(int n) {
     this.numberNodes = n;
     nodes = new Room[n];

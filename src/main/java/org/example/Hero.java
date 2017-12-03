@@ -3,10 +3,13 @@ package org.example;
 import java.util.Random;
 import java.util.Stack;
 
-public class Hero implements Runnable, Comparable<Hero> {
+import org.infinispan.creson.Shared;
+
+public class Hero implements Comparable<Hero> {
   Room room = new Room(0);
   int score;
-  Graph graph;
+  @Shared Graph graph;
+  
   String name;
 
   Hero(Graph graph) {
@@ -21,10 +24,11 @@ public class Hero implements Runnable, Comparable<Hero> {
     this.name = name;
   }
 
-  private int play() {
+  public int play() {
     int taille = graph.getGraphSize();
     boolean[] visited = new boolean[taille];
     Room room = graph.getRoom(graph.randomRoom(0, taille - 1));
+    //Room room = graph.getRoom(0);
     Stack<Room> stack = new Stack<Room>();
     stack.push(room);
     visited[room.id] = true;
@@ -41,17 +45,9 @@ public class Hero implements Runnable, Comparable<Hero> {
     return this.score;
   }
 
-  public int go() {
-    return room.loot();
-  }
 
   public String toString() {
     return ("The player " + this.name + " has " + this.score + " treasure(s)");
-  }
-
-  @Override
-  public void run() {
-    play();
   }
 
   @Override

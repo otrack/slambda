@@ -9,14 +9,13 @@ import org.infinispan.creson.Shared;
 
 public class Graph implements Serializable{
   private int numberNodes ; 
-  Room[] nodes;
+  @Shared ArrayList<Room>  nodes = new ArrayList<>();
   
   public Graph() {};
   public Graph(int n) {
     this.numberNodes = n;
-    nodes = new Room[n];
     for(int i = 0; i < n; i++) {
-      nodes[i] = new Room(i);
+      nodes.add(new Room(i));
     };
   }
   
@@ -25,12 +24,12 @@ public class Graph implements Serializable{
   }
   
   public Room addRoom(int roomId) {
-    nodes[roomId] = new Room(roomId);
-    return nodes[roomId];
+    nodes.add(roomId, new Room(roomId));;
+    return nodes.get(roomId);
   }
   
   public Room getRoom(int roomId) {
-    return nodes[roomId];
+    return nodes.get(roomId);
   }
   
   public void addDirectedPath(int begId, int endId) {

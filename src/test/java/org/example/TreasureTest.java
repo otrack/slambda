@@ -18,7 +18,7 @@ public class TreasureTest {
   public void setUp() throws Exception {
     Factory.get("localhost:11222");
     
-    gr = new Graph(100000);
+    gr = new Graph(100);
     for(int i = 0 ; i < gr.getGraphSize() ; i++) {
       gr.addUndirectedPath(i, randomRoom(0, gr.getGraphSize()-1));
       gr.addUndirectedPath(i, randomRoom(0, gr.getGraphSize()-1));

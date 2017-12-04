@@ -7,16 +7,17 @@ public class Room implements Serializable{
 	
 	int treasure;
 	int id; 
-	LinkedList<Room> adjList;
+	LinkedList<Room>  adjList = new LinkedList<>(); ;
 	
 	public Room() {
 	  treasure = 1;
     adjList = new LinkedList<>();
 	};
+	
 	public Room(int id) {
 	  this.id = id;
 		treasure = 1;
-		adjList = new LinkedList<>();
+		
 	}
 	
 	

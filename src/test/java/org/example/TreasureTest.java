@@ -16,7 +16,7 @@ public class TreasureTest {
   }
   @Before
   public void setUp() throws Exception {
-    Factory.get("localhost:11222");
+   Factory.get("localhost:11222");
     
     gr = new Graph(100);
     for(int i = 0 ; i < gr.getGraphSize() ; i++) {

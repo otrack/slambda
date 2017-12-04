@@ -9,7 +9,7 @@ import org.infinispan.creson.Shared;
 
 public class Graph implements Serializable{
   private int numberNodes ; 
-  @Shared ArrayList<Room>  nodes = new ArrayList<>();
+  @Shared ArrayList<Room> nodes = new ArrayList<>();
   
   public Graph() {};
   public Graph(int n) {

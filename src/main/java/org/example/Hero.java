@@ -6,9 +6,8 @@ import java.util.Stack;
 import org.infinispan.creson.Shared;
 
 public class Hero implements Comparable<Hero> {
-  Room room = new Room(0);
   int score;
-  @Shared Graph graph;
+  Graph graph;
   
   String name;
 
@@ -28,7 +27,6 @@ public class Hero implements Comparable<Hero> {
     int taille = graph.getGraphSize();
     boolean[] visited = new boolean[taille];
     Room room = graph.getRoom(graph.randomRoom(0, taille - 1));
-    //Room room = graph.getRoom(0);
     Stack<Room> stack = new Stack<Room>();
     stack.push(room);
     visited[room.id] = true;

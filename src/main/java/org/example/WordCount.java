@@ -23,8 +23,7 @@ import java.util.StringTokenizer;
 public class WordCount {
 
     public static void main(String args[]) throws Exception {
-        Factory.get("creson.otrack.org:11222"); // CRESON initialization
-        // Factory.get("localhost:11222"); // CRESON initialization
+        Factory.get("localhost:11222"); // CRESON initialization
         List<String> lines = importFile();
         long time1 = System.currentTimeMillis();
         Map<String,Long> words = countWords(lines);

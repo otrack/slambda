@@ -13,7 +13,7 @@ import java.util.TreeMap;
 
 public class Hello implements RequestHandler<Map<String, String>, String> {
 
-    @Shared ArrayList<String> list = new ArrayList<>(); // @Shared works with empty constructor only
+    @Shared ArrayList<String> list = new ArrayList<>();
     @Shared Map<Integer, Integer> map = new HashMap<>();
     @Shared TreeMap<Integer, Integer> treeMap = new TreeMap<>();
 

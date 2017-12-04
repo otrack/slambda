@@ -3,24 +3,28 @@ package org.example;
 import java.io.Serializable;
 import java.util.LinkedList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+@Entity
 public class Room implements Serializable{
 	
-	int treasure;
-	int id; 
-	LinkedList<Room>  adjList = new LinkedList<>(); ;
 	
-	public Room() {
-	  treasure = 1;
-    adjList = new LinkedList<>();
-	};
+  private static final long serialVersionUID = 4805204995317415754L;
+  
+  @Id
+  int id;
+  int treasure;
+  
+	LinkedList<Room>  adjList = new LinkedList<>(); ;
+
 	
 	public Room(int id) {
 	  this.id = id;
-		treasure = 1;
-		
+		treasure = 1;	
 	}
-	
-	
+
 	public int loot(){
 	    if (treasure == 1) {
 	      treasure = 0;

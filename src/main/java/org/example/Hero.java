@@ -1,14 +1,13 @@
 package org.example;
 
-import java.util.Random;
 import java.util.Stack;
 
-import org.infinispan.creson.Shared;
+
 
 public class Hero implements Comparable<Hero> {
   int score;
   Graph graph;
-  
+
   String name;
 
   Hero(Graph graph) {
@@ -30,11 +29,12 @@ public class Hero implements Comparable<Hero> {
     Stack<Room> stack = new Stack<Room>();
     stack.push(room);
     visited[room.id] = true;
-    while(!stack.isEmpty()) {
+    while (!stack.isEmpty()) {
       Room currentRoom = stack.pop();
-      this.score +=  currentRoom.loot();
-      for(Room r : currentRoom.adjList) {
-        if(!visited[r.id]) {
+      System.out.println(currentRoom.id + " " + currentRoom.adjList.size());
+      this.score += currentRoom.loot();
+      for (Room r : currentRoom.adjList) {
+        if (!visited[r.id]) {
           visited[r.id] = true;
           stack.push(r);
         }
@@ -43,15 +43,14 @@ public class Hero implements Comparable<Hero> {
     return this.score;
   }
 
-
   public String toString() {
     return ("The player " + this.name + " has " + this.score + " treasure(s)");
   }
 
   @Override
   public int compareTo(Hero other) {
-    if(this.score - other.score != 0)
-      return -(this.score - other.score) ;
+    if (this.score - other.score != 0)
+      return -(this.score - other.score);
     else
       return this.name.compareTo(other.name);
   }

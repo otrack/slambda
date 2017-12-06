@@ -3,18 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>slambda</artifactId>
+  <artifactId>treasureRush</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>stateful lambda</name>
+  <name>shared room</name>
 
   <dependencies>
-
-    <dependency>
-      <groupId>com.amazonaws</groupId>
-      <artifactId>aws-lambda-java-core</artifactId>
-      <version>1.1.0</version>
-    </dependency>
 
     <dependency>
       <groupId>org.infinispan</groupId>
@@ -29,12 +23,44 @@
     </dependency>
 
     <!-- TESTS -->
+
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.8.8</version>
+    </dependency>
+
+    <!-- Creson emulation -->
+
+    <dependency>
+      <groupId>org.infinispan</groupId>
+      <artifactId>infinispan-creson-server</artifactId>
+      <version>9.0.3.Final</version>
+      <type>test-jar</type>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.infinispan</groupId>
+      <artifactId>infinispan-creson-server</artifactId>
+      <version>9.0.3.Final</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.infinispan</groupId>
+      <artifactId>infinispan-server-hotrod</artifactId>
+      <version>9.0.3.Final</version>
+      <type>test-jar</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.infinispan</groupId>
+      <artifactId>infinispan-core</artifactId>
+      <version>9.0.3.Final</version>
+      <type>test-jar</type>
+    </dependency>
+
 
   </dependencies>
 
@@ -99,32 +125,6 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>com.github.seanroy</groupId>
-        <artifactId>lambda-maven-plugin</artifactId>
-        <version>2.2.2</version>
-        <configuration>
-          <region>eu-west-1</region>
-          <s3Bucket>creson</s3Bucket>
-          <memorySize>128</memorySize>
-          <functionCode>${lambda.functionCode}</functionCode>
-          <version>${lambda.version}</version>
-          <lambdaRoleArn>arn:aws:iam::667743079194:role/slambda_lambda_function</lambdaRoleArn>
-          <publish>${lambda.publish}</publish>
-          <forceUpdate>${lambda.forceUpdate}</forceUpdate>
-          <functionNameSuffix>${lambda.functionNameSuffix}</functionNameSuffix>
-          <lambdaFunctionsJSON>
-            [
-            {
-            "functionName": "my-function",
-            "description": "test",
-            "handler": "org.example.Hello"
-            }
-            ]
-          </lambdaFunctionsJSON>
-        </configuration>
       </plugin>
 
     </plugins>

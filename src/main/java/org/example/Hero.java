@@ -5,9 +5,11 @@ import java.util.Stack;
 
 
 public class Hero implements Comparable<Hero> {
+
   private int score;
   private Graph graph;
   private String name;
+
 
   Hero(Graph graph) {
     this.graph = graph;
@@ -24,15 +26,19 @@ public class Hero implements Comparable<Hero> {
   public int play() {
     int taille = graph.getGraphSize();
     boolean[] visited = new boolean[taille];
+
     Room room = graph.getRoom(graph.randomRoom(0, taille));
+
     Stack<Room> stack = new Stack<Room>();
     stack.push(room);
     visited[room.id] = true;
     while (!stack.isEmpty()) {
       Room currentRoom = stack.pop();
+
       System.out.println(currentRoom.id + " " + currentRoom.getAdjList());
       this.score += currentRoom.loot();
       for (Room r : currentRoom.getAdjList()) {
+
         if (!visited[r.id]) {
           visited[r.id] = true;
           stack.push(r);
@@ -57,4 +63,5 @@ public class Hero implements Comparable<Hero> {
   public int getScore() {
     return score;
   }
+
 }

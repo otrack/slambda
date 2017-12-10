@@ -34,6 +34,4 @@ public class TreasureTest extends Emulation {
     protected int numberOfCaches(){
         return 3;
     }
-
-
 }
